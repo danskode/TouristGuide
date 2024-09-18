@@ -34,7 +34,9 @@
         </tr>
     </tbody>
 </table>
-<button>Tilføj ny attraktion</button>
+<form th:action="@{'/attractions/add'}" method="get">
+    <button name="addbtn" value="ok">Tilføj turistattraktion</button>
+</form>
 
 
 </body>

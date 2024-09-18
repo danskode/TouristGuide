@@ -47,9 +47,9 @@ public class TouristGuideRepository {
     }
 
     //work in progress ...
-    public TouristAttraction addTouristAttraction(String name, String description, String image, int priceDkk, String city, List<String> tags) {
+    public String addTouristAttraction(String name, String description, String image, int priceDkk, String city, List<String> tags) {
         TouristAttraction touristAttraction = new TouristAttraction(name, description, image, priceDkk, city, tags);
         this.touristAttractions.add(touristAttraction);
-        return touristAttraction;
+        return "Done";
     }
 }

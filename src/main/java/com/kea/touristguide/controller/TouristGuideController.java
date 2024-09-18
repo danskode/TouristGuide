@@ -58,7 +58,7 @@ public class TouristGuideController {
         return "redirect:/attractions";
     }
 
-    //add one ... work in progress ...
+    //add one ...
     @GetMapping("add")
     public String addNewAttraction() {
 //        TouristAttraction attraktion = new TouristAttraction();
@@ -67,10 +67,18 @@ public class TouristGuideController {
         return "add";
     }
 
-    //save one ... work in progress ...
+    //save one ...
     @PostMapping("save")
-    public String addTouristAttraction(String name, String description, String image, int priceDkk, String city, List<String> tags){
-        TouristAttraction newAttraction = touristGuideService.addTouristAttraction(name, description, image, priceDkk, city, tags);
-        return "Attractions";
+    public String addTouristAttraction(String name, String description, String image, int priceDkk, String city, String tag1, String tag2, String tag3, String tag4, String tag5, String tag6, String tag7){
+        List<String> tags = new ArrayList<>();
+        if(tag1 != null) {tags.add(tag1);};
+        if(tag2 != null) {tags.add(tag2);};
+        if(tag3 != null) {tags.add(tag3);};
+        if(tag4 != null) {tags.add(tag4);};
+        if(tag5 != null) {tags.add(tag5);};
+        if(tag6 != null) {tags.add(tag6);};
+        if(tag7 != null) {tags.add(tag7);};
+        touristGuideService.addTouristAttraction(name, description, image, priceDkk, city, tags);
+        return "redirect:/attractions";
     }
 }

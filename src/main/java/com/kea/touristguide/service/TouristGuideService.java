@@ -32,7 +32,8 @@ public class TouristGuideService {
     }
 
     // work in progress ...
-    public TouristAttraction addTouristAttraction(String name, String description, String image, int priceDkk, String city, List<String> tags) {
-        return touristGuideRepository.addTouristAttraction(name, description, image, priceDkk, city, tags);
+    public String addTouristAttraction(String name, String description, String image, int priceDkk, String city, List<String> tags) {
+        touristGuideRepository.addTouristAttraction(name, description, image, priceDkk, city, tags);
+        return "done";
     }
 }
