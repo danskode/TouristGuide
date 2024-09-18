@@ -12,5 +12,9 @@
 <p>Prisniveau: <span th:text="${attraktion.priceDkk}">pris i kroner</span> kr.</p>
 <p th:text="${attraktion.city}">By</p>
 
+<form action="/attractions" method="get">
+    <button name="backbtn">Tilbage til oversigt</button>
+</form>
+
 </body>
 </html>

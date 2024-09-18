@@ -25,7 +25,7 @@ public class TouristGuideService {
         return touristGuideRepository.getTouristAttractionByName(nameStriped);
     }
 
-    // work in progress ...
+    //working ...
     public String deleteTouristAttractionByName(String nameStriped) {
         touristGuideRepository.deleteTouristAttractionByName(nameStriped);
         return "done";

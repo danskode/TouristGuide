@@ -18,14 +18,18 @@
     </thead>
     <tbody>
         <tr th:each="attraktion : ${turistattraktioner}">
-            <td th:text="${attraktion.name}">Attraktionens navn</td>
+            <td><a th:href="'/attractions/' + ${attraktion.name}"><span th:text="${attraktion.name}">Attraktionens navn</span></a></td>
             <td th:text="${attraktion.description}">Beskrivelse af attraktionen</td>
             <td>
                 <form th:action="'/attractions/delete/' + ${attraktion.name}" method="post">
-                    <button name="deletebtn">Slet</button>
+                    <button name="deletebtn" value="ok">Slet</button>
                 </form>
-                <button type="button"><a th:href="@{'/attractions/' + ${attraktion.name} + '/update'}">Opdater</a></button>
-                <button type="button"><a th:href="@{'/attractions/' + ${attraktion.name} + '/tags'}">Se tags</a></button>
+                <form th:action="@{'/attractions/' + ${attraktion.name} + '/update'}" method="get">
+                    <button name="updatebtn"  value="ok">Opdater</button>
+                </form>
+                <form th:action="@{'/attractions/' + ${attraktion.name} + '/tags'}" method="get">
+                    <button name="gobtn" value="ok">Se tags</button>
+                </form>
             </td>
         </tr>
     </tbody>

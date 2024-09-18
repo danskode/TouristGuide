@@ -50,7 +50,7 @@ public class TouristGuideController {
         return "tags";
     }
 
-    //delete one ... work in progress ...
+    //delete one ...
     @PostMapping("/delete/{name}")
     public String deleteTouristAttractionByName(@PathVariable String name) {
         String nameStriped = name.toLowerCase().replaceAll("\\s", "");
