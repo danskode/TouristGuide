@@ -35,13 +35,15 @@ public class TouristGuideRepository {
     }
 
     //work in progress ...
-    public void deleteTouristAttractionByName(String nameStriped) {
+    public String deleteTouristAttractionByName(String nameStriped) {
         for (TouristAttraction touristAttraction : touristAttractions) {
             String getName = touristAttraction.getName().toLowerCase().replaceAll("\\s", "");
             if (getName.equals(nameStriped)) {
                 touristAttractions.remove(touristAttraction);
+                return "done";
             }
         }
+        return "done";
     }
 
     //work in progress ...

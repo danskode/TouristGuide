@@ -21,7 +21,9 @@
             <td th:text="${attraktion.name}">Attraktionens navn</td>
             <td th:text="${attraktion.description}">Beskrivelse af attraktionen</td>
             <td>
-                <button type="submit"><a th:href="@{'/attractions/delete/' + ${attraktion.name} }">Slet</a></button>
+                <form th:action="'/attractions/delete/' + ${attraktion.name}" method="post">
+                    <button name="deletebtn">Slet</button>
+                </form>
                 <button type="button"><a th:href="@{'/attractions/' + ${attraktion.name} + '/update'}">Opdater</a></button>
                 <button type="button"><a th:href="@{'/attractions/' + ${attraktion.name} + '/tags'}">Se tags</a></button>
             </td>

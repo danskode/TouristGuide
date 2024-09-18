@@ -51,11 +51,11 @@ public class TouristGuideController {
     }
 
     //delete one ... work in progress ...
-    @PostMapping("delete/{name}")
+    @PostMapping("/delete/{name}")
     public String deleteTouristAttractionByName(@PathVariable String name) {
         String nameStriped = name.toLowerCase().replaceAll("\\s", "");
         touristGuideService.deleteTouristAttractionByName(nameStriped);
-        return "attractions";
+        return "redirect:/attractions";
     }
 
     //add one ... work in progress ...
