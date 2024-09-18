@@ -4,6 +4,7 @@ import com.kea.touristguide.model.TouristAttraction;
 import com.kea.touristguide.repository.TouristGuideRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -20,5 +21,9 @@ public class TouristGuideService {
 
     public TouristAttraction getTouristAttractionByName(String nameStriped) {
         return touristGuideRepository.getTouristAttractionByName(nameStriped);
+    }
+
+    public List<String> getAllTagsFromAttraction(String nameStriped) {
+        return touristGuideRepository.getAllTagsFromAttraction(nameStriped);
     }
 }
