@@ -15,15 +15,23 @@ public class TouristGuideService {
         this.touristGuideRepository = touristGuideRepository;
     }
 
+    // working ...
     public List<TouristAttraction> getAllTouristAttractions() {
         return touristGuideRepository.getAllTouristAttractions();
     }
 
+    // working ...
     public TouristAttraction getTouristAttractionByName(String nameStriped) {
         return touristGuideRepository.getTouristAttractionByName(nameStriped);
     }
 
-    public List<String> getAllTagsFromAttraction(String nameStriped) {
-        return touristGuideRepository.getAllTagsFromAttraction(nameStriped);
+    // work in progress ...
+    public void deleteTouristAttractionByName(String nameStriped) {
+        touristGuideRepository.deleteTouristAttractionByName(nameStriped);
+    }
+
+    // work in progress ...
+    public TouristAttraction addTouristAttraction(String name, String description, String image, int priceDkk, String city, List<String> tags) {
+        return touristGuideRepository.addTouristAttraction(name, description, image, priceDkk, city, tags);
     }
 }

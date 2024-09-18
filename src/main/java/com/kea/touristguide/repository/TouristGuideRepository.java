@@ -18,10 +18,12 @@ public class TouristGuideRepository {
         touristAttractions.add(new TouristAttraction("Roskilde Festival", "Stor musikfestival i Roskilde, der har eksisteret i mere end 50 år. Startede som en rockfestival, men er i dag mere en festival for populærmusik fra Tik-Tok.", "rosfest.jpg", 2500, "Roskilde", List.of("Musik", "Kultur", "Festival", "Kunst", "Mad")));
     }
 
+    //working ...
     public List<TouristAttraction> getAllTouristAttractions() {
         return touristAttractions;
     }
 
+    //working ...
     public TouristAttraction getTouristAttractionByName(String nameStriped) {
         for(TouristAttraction touristAttraction : touristAttractions) {
             String getName = touristAttraction.getName().toLowerCase().replaceAll("\\s", "");
@@ -32,13 +34,20 @@ public class TouristGuideRepository {
         return null;
     }
 
-    public List<String> getAllTagsFromAttraction(String nameStriped) {
-        for(TouristAttraction touristAttraction : touristAttractions) {
+    //work in progress ...
+    public void deleteTouristAttractionByName(String nameStriped) {
+        for (TouristAttraction touristAttraction : touristAttractions) {
             String getName = touristAttraction.getName().toLowerCase().replaceAll("\\s", "");
             if (getName.equals(nameStriped)) {
-                return touristAttraction.getTags();
+                touristAttractions.remove(touristAttraction);
             }
         }
-        return null;
+    }
+
+    //work in progress ...
+    public TouristAttraction addTouristAttraction(String name, String description, String image, int priceDkk, String city, List<String> tags) {
+        TouristAttraction touristAttraction = new TouristAttraction(name, description, image, priceDkk, city, tags);
+        this.touristAttractions.add(touristAttraction);
+        return touristAttraction;
     }
 }

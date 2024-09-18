@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/main.css}" rel="stylesheet">
+    <title>Tilføj ny turistattraktion</title>
+</head>
+<body>
+<h1>Opret en ny turistattraktion</h1>
+<form action="/attractions/save">
+    <label>Attraktionens navn:</label><br>
+    <input type="text" name="name"><br>
+    <label>Beskrivelse:</label><br>
+    <textarea name="description"></textarea><br>
+    <label>Link til billede:</label><br>
+    <input type="text" name="image"><br>
+    <label>Prisniveau i hele kroner:</label><br>
+    <input type="number" name="priceDkk" min="0"><br>
+    <label>By:</label><br>
+    <input type="text" name="city"><br>
+    <label>Kategorier:</label><br>
+    <input type="checkbox" name="tag1" value="sport">
+    <label>Sport</label><br>
+    <input type="checkbox" name="tag2" value="musik">
+    <label>Musik</label><br>
+    <input type="checkbox" name="tag3" value="børnevenligt">
+    <label>Børnevenligt</label><br>
+    <input type="checkbox" name="tag4" value="natur">
+    <label>Natur</label><br>
+    <input type="checkbox" name="tag5" value="kultur">
+    <label>Kultur</label><br>
+    <input type="checkbox" name="tag6" value="byliv">
+    <label>Byliv</label><br>
+    <input type="checkbox" name="tag7" value="arkitektur">
+    <label>Arkitektur</label><br>
+    <button type="submit">Ok</button>
+    <button type="button">Fortryd</button><br>
+</form>
+
+</body>
+</html>

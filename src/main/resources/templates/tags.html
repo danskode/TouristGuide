@@ -2,9 +2,21 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Tags</title>
+    <link th:href="@{/main.css}" rel="stylesheet">
+    <title th:text="'Alle tags for ' + ${attraktion.name}">Title</title>
 </head>
 <body>
+
+<h1>Tags for <span th:text="${attraktion.name}">attraktion</span></h1>
+<table>
+  <tbody>
+    <tr th:each="tag : ${attraktion.tags}" >
+      <td th:text="${tag}"> tag </td>
+    </tr>
+  </tbody>
+</table>
+
+<button>Tilbage</button>
 
 </body>
 </html>

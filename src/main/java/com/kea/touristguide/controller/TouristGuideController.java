@@ -8,9 +8,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -39,12 +41,36 @@ public class TouristGuideController {
         return "attraction";
     }
 
-    // show all tags for one specific TouristAttraction instance ... In process ...
-    @GetMapping("/{name}/tags")
+    // show all tags for one specific TouristAttraction instance ...
+    @GetMapping("{name}/tags")
     public String getOneTouristAttractionsTags(@PathVariable String name, Model model){
         String nameStriped = name.toLowerCase().replaceAll("\\s", "");
-        List<String> tags = touristGuideService.getAllTagsFromAttraction(nameStriped);
-        model.addAttribute("tags", tags);
+        TouristAttraction attraction = touristGuideService.getTouristAttractionByName(nameStriped);
+        model.addAttribute("attraktion", attraction);
         return "tags";
+    }
+
+    //delete one ... work in progress ...
+    @PostMapping("delete/{name}")
+    public String deleteTouristAttractionByName(@PathVariable String name) {
+        String nameStriped = name.toLowerCase().replaceAll("\\s", "");
+        touristGuideService.deleteTouristAttractionByName(nameStriped);
+        return "attractions";
+    }
+
+    //add one ... work in progress ...
+    @GetMapping("add")
+    public String addNewAttraction() {
+//        TouristAttraction attraktion = new TouristAttraction();
+//        model.addAttribute("attraktion", attraktion);
+//        model.addAttribute("allValues", Arrays.asList("Musik", "Sport", "Kultur", "Natur" ));
+        return "add";
+    }
+
+    //save one ... work in progress ...
+    @PostMapping("save")
+    public String addTouristAttraction(String name, String description, String image, int priceDkk, String city, List<String> tags){
+        TouristAttraction newAttraction = touristGuideService.addTouristAttraction(name, description, image, priceDkk, city, tags);
+        return "Attractions";
     }
 }
