@@ -46,10 +46,28 @@ public class TouristGuideRepository {
         return "done";
     }
 
-    //work in progress ...
+    //working ...
     public String addTouristAttraction(String name, String description, String image, int priceDkk, String city, List<String> tags) {
         TouristAttraction touristAttraction = new TouristAttraction(name, description, image, priceDkk, city, tags);
         this.touristAttractions.add(touristAttraction);
+        return "Done";
+    }
+
+    // work in progress ...
+    public String updateTouristAttraction(String name, String description, String image, int priceDkk, String city, List<String> tags) {
+
+        for(TouristAttraction touristAttraction : touristAttractions) {
+            String getName = touristAttraction.getName().toLowerCase().replaceAll("\\s", "");
+            if (getName.equals(name)) {
+                touristAttraction.setDescription(description);
+                touristAttraction.setImage(image);
+                touristAttraction.setPriceDkk(priceDkk);
+                touristAttraction.setCity(city);
+                touristAttraction.setTags(tags);
+
+                return "done";
+            }
+        }
         return "Done";
     }
 }

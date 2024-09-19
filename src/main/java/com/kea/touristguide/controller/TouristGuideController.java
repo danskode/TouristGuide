@@ -2,8 +2,6 @@ package com.kea.touristguide.controller;
 
 import com.kea.touristguide.model.TouristAttraction;
 import com.kea.touristguide.service.TouristGuideService;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -81,4 +78,31 @@ public class TouristGuideController {
         touristGuideService.addTouristAttraction(name, description, image, priceDkk, city, tags);
         return "redirect:/attractions";
     }
+
+    // update one specific TouristAttraction instance by name ...
+    @GetMapping("/{name}/edit")
+    public String getTouristAttractionByNameToEdit(@PathVariable String name, Model model) {
+        String nameStriped = name.toLowerCase().replaceAll("\\s", "");
+        TouristAttraction attraction = touristGuideService.getTouristAttractionByName(nameStriped);
+        model.addAttribute("attraktion", attraction);
+        return "edit";
+    }
+
+    // save changes after edit ...
+    @PostMapping("{name}/update")
+    public String updateTouristAttraction(@PathVariable String name, String description, String image, int priceDkk, String city, String tag1, String tag2, String tag3, String tag4, String tag5, String tag6, String tag7){
+        String nameStriped = name.toLowerCase().replaceAll("\\s", "");
+        List<String> tags = new ArrayList<>();
+        if(tag1 != null) {tags.add(tag1);};
+        if(tag2 != null) {tags.add(tag2);};
+        if(tag3 != null) {tags.add(tag3);};
+        if(tag4 != null) {tags.add(tag4);};
+        if(tag5 != null) {tags.add(tag5);};
+        if(tag6 != null) {tags.add(tag6);};
+        if(tag7 != null) {tags.add(tag7);};
+
+        touristGuideService.updateTouristAttraction(nameStriped, description, image, priceDkk, city, tags);
+        return "redirect:/attractions/{name}";
+    }
+
 }

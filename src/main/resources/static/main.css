@@ -2,12 +2,10 @@ h1 {
     color:green;
 }
 
-table {
-    border-collapse: collapse;
-}
 th {
     text-align: left;
 }
-td, th {
+td {
     border: 1px solid lightgray;
+    min-with:125px;
 }

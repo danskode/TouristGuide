@@ -13,22 +13,27 @@
         <tr>
             <th>Attraktion</th>
             <th>Beskrivelse</th>
-            <th></th>
+            <th>By</th>
         </tr>
     </thead>
     <tbody>
         <tr th:each="attraktion : ${turistattraktioner}">
             <td><a th:href="'/attractions/' + ${attraktion.name}"><span th:text="${attraktion.name}">Attraktionens navn</span></a></td>
             <td th:text="${attraktion.description}">Beskrivelse af attraktionen</td>
+            <td th:text="${attraktion.city}">By</td>
             <td>
                 <form th:action="'/attractions/delete/' + ${attraktion.name}" method="post">
                     <button name="deletebtn" value="ok">Slet</button>
                 </form>
-                <form th:action="@{'/attractions/' + ${attraktion.name} + '/update'}" method="get">
+            </td>
+            <td>
+                <form th:action="@{'/attractions/' + ${attraktion.name} + '/edit'}" method="get">
                     <button name="updatebtn"  value="ok">Opdater</button>
                 </form>
+            </td>
+            <td>
                 <form th:action="@{'/attractions/' + ${attraktion.name} + '/tags'}" method="get">
-                    <button name="gobtn" value="ok">Se tags</button>
+                    <button name="gobtn" value="ok">Tags</button>
                 </form>
             </td>
         </tr>
