@@ -2,13 +2,15 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link th:href="@{/main.css}" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
     <title th:text="${attraktion.name}">Title</title>
 </head>
 <body>
 
 <h1 th:text="${attraktion.name}">Title</h1>
 <p th:text="${attraktion.description}">Beskrivelse</p>
-<img th:src="@{ '/img/' + ${attraktion.image} }"
+<img th:src="@{ ${attraktion.image} }"
 <p>Prisniveau: <span th:text="${attraktion.priceDkk}">pris i kroner</span> kr.</p>
 <p th:text="${attraktion.city}">By</p>
 
@@ -18,3 +20,5 @@
 
 </body>
 </html>
+
+<!-- '/img/' +  -->

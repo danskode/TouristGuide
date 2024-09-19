@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link th:href="@{/main.css}" rel="stylesheet">
-    <title th:text="'Opdater ' + @{attraktion.name}">Title</title>
+    <title th:text="'Opdater ' + ${attraktion.name}">Title</title>
 </head>
 <body>
 
@@ -15,27 +15,27 @@
     <label>Beskrivelse:</label><br>
     <textarea name="description" th:text="${attraktion.description}"></textarea><br>
     <label>Link til billede:</label><br>
-    <input type="text" name="image" th:value="${attraktion.image}"><br>
+    <input type="url" name="image" th:value="${attraktion.image}"><br>
     <label>Prisniveau i hele kroner:</label><br>
     <input type="number" name="priceDkk" min="0" th:value="${attraktion.priceDkk}"><br>
     <label>By:</label><br>
     <input type="text" name="city" th:value="${attraktion.city}"><br>
     <label>Kategorier:</label><br>
 
-    <!-- hvad skal der ske her ??? Nok ENUM med tags (husk byer i samme omgang) -->
-    <input type="checkbox" name="tag1" value="sport">
+    <!-- if statements med Thymeleaf for checked or unchecked -->
+    <input type="checkbox" name="tag1" value="sport" th:checked="${attraktion.tags.contains('Sport')} ? 'true' : 'false'">
     <label>Sport</label><br>
-    <input type="checkbox" name="tag2" value="musik">
+    <input type="checkbox" name="tag2" value="musik" th:checked="${attraktion.tags.contains('Musik')} ? 'true' : 'false'">
     <label>Musik</label><br>
-    <input type="checkbox" name="tag3" value="børnevenligt">
+    <input type="checkbox" name="tag3" value="børnevenligt"  th:checked="${attraktion.tags.contains('Børnevenligt')} ? 'true' : 'false'">
     <label>Børnevenligt</label><br>
-    <input type="checkbox" name="tag4" value="natur">
+    <input type="checkbox" name="tag4" value="natur"  th:checked="${attraktion.tags.contains('Natur')} ? 'true' : 'false'">
     <label>Natur</label><br>
-    <input type="checkbox" name="tag5" value="kultur">
+    <input type="checkbox" name="tag5" value="kultur" th:checked="${attraktion.tags.contains('Kultur')} ? 'true' : 'false'">
     <label>Kultur</label><br>
-    <input type="checkbox" name="tag6" value="byliv">
+    <input type="checkbox" name="tag6" value="byliv" th:checked="${attraktion.tags.contains('Byliv')} ? 'true' : 'false'">
     <label>Byliv</label><br>
-    <input type="checkbox" name="tag7" value="arkitektur">
+    <input type="checkbox" name="tag7" value="arkitektur" th:checked="${attraktion.tags.contains('Arkitektur')} ? 'true' : 'false'">
     <label>Arkitektur</label><br>
     <button type="submit">Ok</button>
     <button type="button">Fortryd</button><br>

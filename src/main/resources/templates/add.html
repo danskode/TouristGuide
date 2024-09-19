@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link th:href="@{/main.css}" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
     <title>Tilføj ny turistattraktion</title>
 </head>
 <body>
@@ -12,8 +13,8 @@
     <input type="text" name="name"><br>
     <label>Beskrivelse:</label><br>
     <textarea name="description"></textarea><br>
-    <label>Link til billede:</label><br>
-    <input type="text" name="image"><br>
+    <label>URL til billede:</label><br>
+    <input type="url" name="image"><br>
     <label>Prisniveau i hele kroner:</label><br>
     <input type="number" name="priceDkk" min="0"><br>
     <label>By:</label><br>
