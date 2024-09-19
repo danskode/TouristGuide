@@ -7,8 +7,19 @@
     <title>Her kan du se alle turistattraktionerne</title>
 </head>
 <body>
+<header>
+    <h1>Alle turistattraktioner</h1>
+</header>
 
-<h1>Alle turistattraktioner</h1>
+<nav>
+    <a href="/">Forside</a>
+    <a href="/attractions">Se alle turistattraktioner</a>
+    <a href="/attractions">Om siden</a>
+    <a href="/attractions">Kontakt os</a>
+    <a href="/attractions">Se alle turistattraktioner</a>
+</nav>
+
+
 <table>
     <thead>
         <tr>
@@ -43,7 +54,8 @@
 <form th:action="@{'/attractions/add'}" method="get">
     <button name="addbtn" value="ok">Tilføj turistattraktion</button>
 </form>
-
-
+<footer>
+    <p>Her er en footer med en tekstlinje i.</p>
+</footer>
 </body>
 </html>

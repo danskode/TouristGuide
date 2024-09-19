@@ -7,17 +7,35 @@
     <title th:text="${attraktion.name}">Title</title>
 </head>
 <body>
+<header th:style=" 'background-image: url(' + ${attraktion.image} + '); background-size: 100%;'" >
+    <h1 th:text="${attraktion.name}">Title</h1>
+</header>
 
-<h1 th:text="${attraktion.name}">Title</h1>
-<p th:text="${attraktion.description}">Beskrivelse</p>
-<img th:src="@{ ${attraktion.image} }"
-<p>Prisniveau: <span th:text="${attraktion.priceDkk}">pris i kroner</span> kr.</p>
-<p th:text="${attraktion.city}">By</p>
+<nav>
+    <a href="/">Forside</a>
+    <a href="/attractions">Se alle turistattraktioner</a>
+    <a href="/attractions">Om siden</a>
+    <a href="/attractions">Kontakt os</a>
+    <a href="/attractions">Se alle turistattraktioner</a>
+</nav>
+
+<article>
+    <h2>Beskrivelse:</h2>
+    <p th:text="${attraktion.description}">Beskrivelse</p>
+</article>
+
+
+<ul>
+    <li>Prisniveau: <span th:text="${attraktion.priceDkk}">pris i kroner</span> kr.</li>
+    <li>By: <span th:text="${attraktion.city}"></span></li>
+</ul>
 
 <form action="/attractions" method="get">
     <button name="backbtn">Tilbage til oversigt</button>
 </form>
-
+<footer>
+    <p>Her er en footer med en tekstlinje i.</p>
+</footer>
 </body>
 </html>
 
