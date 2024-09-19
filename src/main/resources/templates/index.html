@@ -17,9 +17,21 @@
     <a href="/attractions">Kontakt os</a>
     <a href="/attractions">Se alle turistattraktioner</a>
 </nav>
-<article>
+<section>
     <h2>Dette er en underoverskrift</h2>
-    <p>Her er noget tekst.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim aeque doleamus animo, cum corpore dolemus, fieri.</p>
+    <p>Ullus investigandi veri, nisi inveneris, et quaerendi defatigatio turpis est, cum esset accusata et vituperata ab Hortensio. Qui liber cum et mortem contemnit, qua qui est imbutus quietus esse numquam potest. Praeterea bona praeterita.</p>
+</section>
+<article>
+    <div class="slider" th:each="attraktion : ${attraktioner}">
+        <div>
+            <a th:href=" '/attractions/' + ${attraktion.name} ">
+                <h3 th:text="${attraktion.name}">test</h3>
+                <img th:src="${attraktion.image}">
+                <p th:text="${attraktion.description}">Beskrivelse</p>
+            </a>
+        </div>
+    </div>
 </article>
 <footer>
     <p>Her er en footer med en tekstlinje i.</p>
