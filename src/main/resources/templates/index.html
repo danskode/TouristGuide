@@ -23,8 +23,8 @@
     <p>Ullus investigandi veri, nisi inveneris, et quaerendi defatigatio turpis est, cum esset accusata et vituperata ab Hortensio. Qui liber cum et mortem contemnit, qua qui est imbutus quietus esse numquam potest. Praeterea bona praeterita.</p>
 </section>
 <article>
-    <div class="slider" th:each="attraktion : ${attraktioner}">
-        <div>
+    <div class="grid-container" th:each="attraktion : ${attraktioner}">
+        <div class="grid-item">
             <a th:href=" '/attractions/' + ${attraktion.name} ">
                 <h3 th:text="${attraktion.name}">test</h3>
                 <img th:src="${attraktion.image}">

@@ -21,6 +21,7 @@ footer {
     bottom: 0;
     text-align: center;
     background-color: green;
+    padding-top: 50px;
 }
 
 nav {
@@ -38,14 +39,28 @@ nav a:hover {
     color: lightgray;
 }
 
-.slider {
-    display: inline-block;
-    width: 200px;
-    height: 300px;
-    padding: 10px;
-    margin: 20px;
+.grid-container {
+    display: inline-grid;
+    grid-auto-rows: auto;
+    gap: 50px 50px;
+    grid-template: auto / 100%;
 }
 
+.grid-item {
+    display: inline;
+    width: 250px;
+    padding: 20px;
+}
+.grid-item:hover {
+    background-color: whitesmoke;
+}
+.grid-item a {
+    text-decoration: none;
+}
+
+article{
+    padding-bottom: 100px;
+}
 
 h1 {
     color:green;
