@@ -6,8 +6,9 @@
     <title th:text="'Opdater ' + ${attraktion.name}">Title</title>
 </head>
 <body>
-
-<h1 th:text="'Opdater turistattraktionen ' + ${attraktion.name}">Opdater attraktion</h1>
+<header>
+    <h1 th:text="'Opdater turistattraktionen ' + ${attraktion.name}">Opdater attraktion</h1>
+</header>
 <form th:action="'/attractions/' + ${attraktion.name} +'/update'" method="post">
     <label>Navn:</label><br>
     <input type="text" name="name" th:value="${attraktion.name}" disabled="disabled">
@@ -41,6 +42,10 @@
     <button type="button">Fortryd</button><br>
 
 </form>
+
+<footer>
+    <p>Her er en footer med en tekstlinje i.</p>
+</footer>
 
 </body>
 </html>

@@ -7,8 +7,10 @@
     <title th:text="'Alle tags for ' + ${attraktion.name}">Title</title>
 </head>
 <body>
+<header>
+    <h1>Tags for <span th:text="${attraktion.name}">attraktion</span></h1>
+</header>
 
-<h1>Tags for <span th:text="${attraktion.name}">attraktion</span></h1>
 <table>
   <tbody>
     <tr th:each="tag : ${attraktion.tags}" >
@@ -21,6 +23,9 @@
     <button name="backbtn">Tilbage til oversigt</button>
 </form>
 
+<footer>
+    <p>Her er en footer med en tekstlinje i.</p>
+</footer>
 
 </body>
 </html>
